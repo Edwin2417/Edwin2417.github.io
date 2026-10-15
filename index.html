@@ -209,17 +209,18 @@ section { scroll-margin-top: 24px; min-width: 0; }
 .job li::before { content: "›"; position: absolute; left: 2px; color: var(--accent); font-family: var(--font-mono); }
 
 /* Skills */
-.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
 .skill {
-  display: flex; flex-direction: column; gap: 10px;
+  display: flex; align-items: center; gap: 12px;
   padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
+  font-weight: 600;
 }
-.skill-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.skill::before {
+  content: ""; width: 8px; height: 8px; flex: none;
+  border-radius: 2px; background: var(--accent);
+}
 .skill-name { font-weight: 600; }
 .skill-level { font: 400 .75rem/1 var(--font-mono); color: var(--muted); }
-.meter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
-.meter i { height: 6px; border-radius: 2px; background: var(--line); }
-.meter i.on { background: var(--accent); }
 .also { margin-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .also-label { font: 400 var(--step--1)/1 var(--font-mono); color: var(--muted); margin-right: 4px; }
 .tag { padding: 5px 10px; border-radius: 99px; border: 1px solid var(--line); font-size: .85rem; }
@@ -395,12 +396,12 @@ footer {
         <h2 data-i18n="h_skills">Habilidades</h2>
       </div>
       <div class="skills">
-        <div class="skill"><div class="skill-top"><span class="skill-name">SQL Server</span><span class="skill-level" data-i18n="lvl_mid">Intermedio</span></div><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div></div>
-        <div class="skill"><div class="skill-top"><span class="skill-name">Python</span><span class="skill-level" data-i18n="lvl_mid">Intermedio</span></div><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div></div>
-        <div class="skill"><div class="skill-top"><span class="skill-name">Docker</span><span class="skill-level" data-i18n="lvl_mid">Intermedio</span></div><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div></div>
-        <div class="skill"><div class="skill-top"><span class="skill-name">PostgreSQL</span><span class="skill-level" data-i18n="lvl_low">Básico</span></div><div class="meter" aria-hidden="true"><i class="on"></i><i></i><i></i></div></div>
-        <div class="skill"><div class="skill-top"><span class="skill-name">Power BI</span><span class="skill-level" data-i18n="lvl_low">Básico</span></div><div class="meter" aria-hidden="true"><i class="on"></i><i></i><i></i></div></div>
-        <div class="skill"><div class="skill-top"><span class="skill-name">Windows Server</span><span class="skill-level" data-i18n="lvl_low">Básico</span></div><div class="meter" aria-hidden="true"><i class="on"></i><i></i><i></i></div></div>
+        <div class="skill">SQL Server</div>
+        <div class="skill">PostgreSQL</div>
+        <div class="skill">Python</div>
+        <div class="skill">Power BI</div>
+        <div class="skill">Docker</div>
+        <div class="skill">Windows Server</div>
       </div>
       <div class="also">
         <span class="also-label" data-i18n="also">También he trabajado con</span>
@@ -511,7 +512,6 @@ footer {
     j3_title: "Software Development Intern",
     j3_b1: "Designed and built an AI-powered chatbot.",
     h_skills: "Skills",
-    lvl_mid: "Intermediate", lvl_low: "Basic",
     also: "I've also worked with", tag_ai: "AI chatbots",
     h_edu: "Education and certifications",
     h_academic: "Education",
